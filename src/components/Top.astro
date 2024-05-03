@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import newYork from "../assets/new-york.jpg";
+const cities = [
+  { name: "New York", leads: 4, image: newYork },
+  { name: "New York", leads: 4, image: newYork },
+  { name: "New York", leads: 4, image: newYork },
+  { name: "New York", leads: 4, image: newYork },
+  { name: "New York", leads: 4, image: newYork },
+];
+---
+
+<div class="py-10 flex flex-col items-center justify-center bg-amber-50">
+  <div class="mb-3">
+    <h2 class="md:text-5xl text-2xl uppercase font-black">
+      Top States By Lead
+    </h2>
+  </div>
+  <div class="flex flex-wrap gap-4 max-w-6xl mx-auto justify-center my-10">
+    <!-- Title -->
+    {
+      cities.map((city) => (
+        <div class="w-72">
+          <a href="">
+            <Image
+              src={city.image}
+              class="rounded-xl brightness-50"
+              alt={city.name}
+            />
+          </a>
+          <div class="text-sm text-center -translate-y-16 text-white font-semibold sm:-translate-y-18 sm:text-base">
+            <p>{city.name}</p>
+            <p>{city.leads} leads</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <stripe-pricing-table
+    pricing-table-id="prctbl_1PBQSNRpqBMKwN7s2dfTFZsR"
+    publishable-key="pk_test_51PBQ1yRpqBMKwN7sW0FuoMH5rTQP5W0aqCFdGvnz8MuMlOTzHuyIXy62ufb4rTS4ufQGaNU6XX3uAWq2SZ30UcVh00lJKTjQqV"
+  >
+  </stripe-pricing-table>
+</div>
+
+<script is:inline async src="https://js.stripe.com/v3/pricing-table.js"
+></script>
