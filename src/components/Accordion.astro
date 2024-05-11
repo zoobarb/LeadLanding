@@ -1,0 +1,62 @@
+---
+import state from "../assets/nyc.png";
+import wisconsin from "../assets/wisconsin.png";
+import texas from "../assets/texas.png";
+
+const projects = [
+  {
+    state: "New York",
+    leads: "10 Leads",
+    image: state.src,
+    link: "https://google.github.io/magika/",
+  },
+  {
+    state: "Wisconsin",
+    leads: "10 Leads",
+    image: wisconsin.src,
+    link: "/publication/hybrid-post-quantum-signatures-in-hardware-security-keys",
+  },
+  {
+    state: "Texas",
+    leads: "10 Leads",
+    image: texas.src,
+    link: "/talk/malicious-documents-emerging-trends-a-gmail-perspective",
+  },
+  {
+    state: "Mississippi",
+    leads: "10 Leads",
+    image: wisconsin.src,
+    link: "/publication/protecting-accounts-from-credential-stuffing-with-password-breach-alerting",
+  },
+  {
+    state: "New Mexico",
+    leads: "10 Leads",
+    image: texas.src,
+    link: "/talk/cutting-edge-tensorflow-keras-tuner-hypertuning-for-humans",
+  },
+];
+---
+
+<div class="w-[90%]">
+  <div
+    class="flex-container w-full h-screen md:h-96 flex md:overflow-hidden flex-col md:flex-row"
+  >
+    {
+      projects.reverse().map((project, index) => (
+        <div
+          style={`background-image: url(${project.image});`}
+          class="relative hover:cursor-pointer flex-1 md:hover:flex-[3] transition-all ease-in-out duration-500 bg-cover bg-center h-full group z-50"
+          data-index={index}
+        >
+          <div class="absolute top-0 left-0 bg-black opacity-70 h-full w-full z-[1]" />
+          <div class="state absolute z-10 w-full text-white m-auto text-center text-3xl md:text-4xl md:rotate-90 top-[20%] md:top-1/2 transition-all ease-in-out duration-500 md:group-hover:rotate-0">
+            {project.state}
+          </div>
+          <div class="text-xl md:text-2xl text-center absolute z-10  w-full flex flex-col justify-center text-white py-[2%] px-[5%] md:px-[10%] md:py-[15%] top-[45%] mx-auto transition-all ease-in-out duration-500 md:opacity-0 group-hover:opacity-100">
+            <p>{project.leads}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
