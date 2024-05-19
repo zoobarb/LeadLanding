@@ -4,90 +4,39 @@ import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Top from "../components/Top.astro";
 import Map from "../components/Map.jsx";
-import Testimonials from "../components/Testimonials.astro"
-import Cart from "../components/Cart.astro"
-import Footer from "../components/Footer.astro"
-import NeedToKnow from "../components/NeedToKnow.astro"
-import Refunds from "../components/Refunds.astro"
+import Testimonials from "../components/Testimonials.astro";
+import Cart from "../components/Cart.astro";
+import Footer from "../components/Footer.astro";
+import NeedToKnow from "../components/NeedToKnow.astro";
+import Refunds from "../components/Refunds.astro";
 
-const stores = [
-{
-    "address": "129 McCarrell Ln",
-    "store": "Total Pursuit Athletics",
-    "thumb": "",
-    "id": "14476",
-    "distance": 327.2,
-    "address2": "",
-    "city": "16063",
-    "state": "",
-    "zip": "",
-    "country": "USA",
-    "lat": "40.7605189",
-    "lng": "-80.1122365",
-    "phone": "",
-    "fax": "",
-    "email": "meghan@totalpursuitathletics.com",
-    "hours": "",
-    "url": "https://totalpursuitathletics.com/"
-    },
-    {
-    "address": "110 McMillen Ave, Unit 2",
-    "store": "Mano Sports Performance",
-    "thumb": "",
-    "id": "18145",
-    "distance": 330.7,
-    "address2": "",
-    "city": "Beaver Hills",
-    "state": "",
-    "zip": "15010",
-    "country": "USA",
-    "lat": "40.7710006",
-    "lng": "-80.3733098",
-    "phone": "",
-    "fax": "",
-    "email": "manoperformance@gmail.com",
-    "hours": "",
-    "url": "https://www.manosportsperformance.com/"
-    },
-    {
-    "address": "3144 Twelve Mile Rd",
-    "store": "Anytime Fitness Berkley",
-    "thumb": "",
-    "id": "14523",
-    "distance": 334.6,
-    "address2": "",
-    "city": "48072",
-    "state": "",
-    "zip": "",
-    "country": "USA",
-    "lat": "42.5033288",
-    "lng": "-83.1909403",
-    "phone": "",
-    "fax": "",
-    "email": "vance1pc@gmail.com",
-    "hours": "",
-    "url": "https://www.anytimefitness.com/gyms/1765/Berkley-MI-48072/?utm_source=google&#038;utm_medium=local&#038;utm_campaign=localmaps&#038;utm_content=1765"
-    },
-    {
-    "address": "3113 Green Garden Rd",
-    "store": "Aurelius CrossFit",
-    "thumb": "",
-    "id": "17677",
-    "distance": 348.1,
-    "address2": "",
-    "city": "15001",
-    "state": "",
-    "zip": "",
-    "country": "USA",
-    "lat": "40.598233",
-    "lng": "-80.3058155",
-    "phone": "",
-    "fax": "",
-    "email": "aureliuscf@gmail.com",
-    "hours": "",
-    "url": "https://www.aureliuscrossfit.com/"
-    },
-]
+const points = [
+  { lat: 29.4315, lng: -98.4887 },
+  { lat: 29.4189, lng: -98.5098 },
+  { lat: 29.4451, lng: -98.4954 },
+  { lat: 29.4062, lng: -98.4783 },
+  { lat: 29.4374, lng: -98.5112 },
+  { lat: 29.4158, lng: -98.5264 },
+  { lat: 29.4273, lng: -98.5011 },
+  { lat: 29.439, lng: -98.4845 },
+  { lat: 29.4036, lng: -98.5169 },
+  { lat: 29.4123, lng: -98.4877 },
+  { lat: 29.4227, lng: -98.5025 },
+  { lat: 29.4291, lng: -98.4778 },
+  { lat: 29.421, lng: -98.5104 },
+  { lat: 29.4337, lng: -98.4923 },
+  { lat: 29.4078, lng: -98.5007 },
+  { lat: 29.4405, lng: -98.5062 },
+  { lat: 29.4141, lng: -98.4789 },
+  { lat: 29.4352, lng: -98.5126 },
+  { lat: 29.4105, lng: -98.4968 },
+  { lat: 29.4261, lng: -98.4849 },
+  { lat: 29.4215, lng: -98.5231 },
+  { lat: 29.4178, lng: -98.5072 },
+  { lat: 29.4322, lng: -98.5004 },
+  { lat: 29.4182, lng: -98.4856 },
+  { lat: 29.4309, lng: -98.5143 },
+];
 ---
 
 <Layout title="Insurance For Locals Final Expense Leads">
@@ -100,6 +49,6 @@ const stores = [
   <Refunds />
   <Footer /> -->
   <div class="py-24 min-h-96 max-w-7xl mx-auto relative bg-white">
-    <Map client:only="react" stores={stores} />
+    <Map client:only="react" stores={points} />
   </div>
 </Layout>
