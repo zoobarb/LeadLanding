@@ -1,0 +1,34 @@
+---
+import Map from "../components/Map.jsx";
+
+const points = [
+  { lat: 29.4315, lng: -98.4887 },
+  { lat: 29.4189, lng: -98.5098 },
+  { lat: 29.4451, lng: -98.4954 },
+  { lat: 29.4062, lng: -98.4783 },
+  { lat: 29.4374, lng: -98.5112 },
+  { lat: 29.4158, lng: -98.5264 },
+  { lat: 29.4273, lng: -98.5011 },
+  { lat: 29.439, lng: -98.4845 },
+  { lat: 29.4036, lng: -98.5169 },
+  { lat: 29.4123, lng: -98.4877 },
+  { lat: 29.4227, lng: -98.5025 },
+  { lat: 29.4291, lng: -98.4778 },
+  { lat: 29.421, lng: -98.5104 },
+  { lat: 29.4337, lng: -98.4923 },
+  { lat: 29.4078, lng: -98.5007 },
+  { lat: 29.4405, lng: -98.5062 },
+  { lat: 29.4141, lng: -98.4789 },
+  { lat: 29.4352, lng: -98.5126 },
+  { lat: 29.4105, lng: -98.4968 },
+  { lat: 29.4261, lng: -98.4849 },
+  { lat: 29.4215, lng: -98.5231 },
+  { lat: 29.4178, lng: -98.5072 },
+  { lat: 29.4322, lng: -98.5004 },
+  { lat: 29.4182, lng: -98.4856 },
+  { lat: 29.4309, lng: -98.5143 },
+];
+---
+
+<h1 class="text-5xl text-bold text-center my-4">Leads Web App</h1>
+<Map client:only="react" stores={points} />

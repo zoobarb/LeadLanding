@@ -40,25 +40,25 @@ const markerIcon = new L.Icon({
 //   return null;
 // };
 
-const Heatmap = ({ stores }) => {
-  const map = useMap();
+// const Heatmap = ({ stores }) => {
+//   const map = useMap();
 
-  useEffect(() => {
-    const points = stores
-      ? stores.map((address) => {
-          return [address.lat, address.lng, 1]; // lat lng intensity
-        })
-      : [];
+//   useEffect(() => {
+//     const points = stores
+//       ? stores.map((address) => {
+//           return [address.lat, address.lng, 1]; // lat lng intensity
+//         })
+//       : [];
 
-    L.heatLayer(points, {
-      minOpacity: 0.5,
-      maxZoom: map.getMaxZoom(),
-      max: 1.0,
-      radius: 15,
-      blur: 15,
-    }).addTo(map);
-  }, []);
-};
+//     L.heatLayer(points, {
+//       minOpacity: 0.5,
+//       maxZoom: map.getMaxZoom(),
+//       max: 1.0,
+//       radius: 15,
+//       blur: 15,
+//     }).addTo(map);
+//   }, []);
+// };
 
 const Location = ({ stores }) => {
   const customIcon = new L.Icon({
@@ -78,18 +78,18 @@ const Location = ({ stores }) => {
     <MapContainer
       style={{ height: "500px" }}
       center={[29.4241, -98.4936]}
-      zoom={12}
+      zoom={14}
       minZoom={2}
       scrollWheelZoom={true}
     >
       {" "}
-      <Heatmap stores={stores} />
+      {/* <Heatmap stores={stores} /> */}
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {/* <MarkerClusterGroup chunkedLoading> */}
-      {/* {stores.map((address, index) => (
+      {stores.map((address, index) => (
         <Marker
           icon={customIcon}
           key={index}
@@ -102,7 +102,7 @@ const Location = ({ stores }) => {
                 <h2 className="text-lg font-semibold mb-2">
                   {address.store
                     ? address.store.replace("#038;", "")
-                    : "Store Name"}
+                    : "Lead Name"}
                 </h2>
               </div>
               <p className="text-sm leading-6">
@@ -120,20 +120,20 @@ const Location = ({ stores }) => {
                 )}
                 {address.country && <span>{address.country}</span>}
               </p>
-              {address.url && (
-                <a
-                  href={address.url}
-                  className="mt-4 block text-blue-600 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Store Website
-                </a>
-              )}
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${
+                  address.lat + "," + address.lng
+                }`}
+                className="mt-4 block text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions
+              </a>
             </div>
           </Popup>
         </Marker>
-      ))} */}
+      ))}
       {/* </MarkerClusterGroup> */}
     </MapContainer>
   );
