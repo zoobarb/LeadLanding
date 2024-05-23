@@ -3,18 +3,12 @@ import { Image } from "astro:assets";
 import Accordion from "./Accordion.astro";
 ---
 
-<div class="py-10 flex flex-col items-center justify-center bg-amber-50">
+<div
+  id="buy"
+  class="py-10 flex flex-col items-center justify-center bg-amber-50"
+>
   <div class="mb-3">
-    <h2 class="md:text-5xl text-2xl uppercase font-black">
-      Top States By Lead
-    </h2>
+    <h2 class="md:text-5xl text-2xl font-black">Top States By Leads</h2>
   </div>
   <Accordion />
-  <stripe-pricing-table
-    pricing-table-id="prctbl_1PBQSNRpqBMKwN7s2dfTFZsR"
-    publishable-key="pk_test_51PBQ1yRpqBMKwN7sW0FuoMH5rTQP5W0aqCFdGvnz8MuMlOTzHuyIXy62ufb4rTS4ufQGaNU6XX3uAWq2SZ30UcVh00lJKTjQqV"
-  >
-  </stripe-pricing-table>
 </div>
-<script is:inline async src="https://js.stripe.com/v3/pricing-table.js"
-></script>

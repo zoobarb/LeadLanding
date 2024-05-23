@@ -4,11 +4,9 @@ import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Top from "../components/Top.astro";
 import Map from "../components/Map.jsx";
-import Testimonials from "../components/Testimonials.astro";
-import Cart from "../components/Cart.astro";
-import Footer from "../components/Footer.astro";
-import NeedToKnow from "../components/NeedToKnow.astro";
-import Refunds from "../components/Refunds.astro";
+import Contact from "../components/Contact.astro";
+import Video from "../components/Video.astro";
+import Buy from "../components/Buy.astro";
 
 const points = [
   { lat: 29.4315, lng: -98.4887 },
@@ -42,13 +40,14 @@ const points = [
 <Layout title="Insurance For Locals Final Expense Leads">
   <Hero />
   <Top />
-  <!-- <Testimonials />
-  <Cart /> -->
-  <About />
-  <!-- <NeedToKnow />
-  <Refunds />
-  <Footer /> -->
-  <div class="py-24 min-h-96 max-w-7xl mx-auto relative bg-white">
+  <div
+    id="locations"
+    class="py-24 min-h-96 max-w-7xl mx-auto relative bg-white"
+  >
     <Map client:only="react" stores={points} />
   </div>
+  <Buy />
+  <About />
+  <Video />
+  <Contact />
 </Layout>

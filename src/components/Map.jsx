@@ -75,67 +75,72 @@ const Location = ({ stores }) => {
   };
 
   return (
-    <MapContainer
-      style={{ height: "500px" }}
-      center={[29.4241, -98.4936]}
-      zoom={14}
-      minZoom={2}
-      scrollWheelZoom={true}
-    >
-      {" "}
-      {/* <Heatmap stores={stores} /> */}
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* <MarkerClusterGroup chunkedLoading> */}
-      {stores.map((address, index) => (
-        <Marker
-          icon={customIcon}
-          key={index}
-          position={[address.lat, address.lng]}
-          title={address.store}
-        >
-          <Popup>
-            <div className="border border-gray-300 p-4 rounded-lg w-64 bg-gray-50">
-              <div>
-                <h2 className="text-lg font-semibold mb-2">
-                  {address.store
-                    ? address.store.replace("#038;", "")
-                    : "Lead Name"}
-                </h2>
-              </div>
-              <p className="text-sm leading-6">
-                {address.address && (
-                  <span>
-                    {address.address}
-                    <br />
-                  </span>
-                )}
-                {address.city && (
-                  <span>
-                    {address.city}
-                    <br />
-                  </span>
-                )}
-                {address.country && <span>{address.country}</span>}
-              </p>
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&destination=${
-                  address.lat + "," + address.lng
-                }`}
-                className="mt-4 block text-blue-600 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get Directions
-              </a>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-      {/* </MarkerClusterGroup> */}
-    </MapContainer>
+    <>
+      <h2 class="md:text-5xl text-2xl font-black my-4 text-center">
+        Lead Locations
+      </h2>
+      <MapContainer
+        style={{ height: "500px" }}
+        center={[29.4241, -98.4936]}
+        zoom={14}
+        minZoom={2}
+        scrollWheelZoom={false}
+      >
+        {" "}
+        {/* <Heatmap stores={stores} /> */}
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <MarkerClusterGroup chunkedLoading>
+          {stores.map((address, index) => (
+            <Marker
+              icon={customIcon}
+              key={index}
+              position={[address.lat, address.lng]}
+              title={address.store}
+            >
+              <Popup>
+                <div className="border border-gray-300 p-4 rounded-lg w-64 bg-gray-50">
+                  <div>
+                    <h2 className="text-lg font-semibold mb-2">
+                      {address.store
+                        ? address.store.replace("#038;", "")
+                        : "Lead Name"}
+                    </h2>
+                  </div>
+                  <p className="text-sm leading-6">
+                    {address.address && (
+                      <span>
+                        {address.address}
+                        <br />
+                      </span>
+                    )}
+                    {address.city && (
+                      <span>
+                        {address.city}
+                        <br />
+                      </span>
+                    )}
+                    {address.country && <span>{address.country}</span>}
+                  </p>
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${
+                      address.lat + "," + address.lng
+                    }`}
+                    className="mt-4 block text-blue-600 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
+      </MapContainer>
+    </>
   );
 };
 
