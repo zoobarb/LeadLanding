@@ -5,8 +5,15 @@ import About from "../components/About.astro";
 import Top from "../components/Top.astro";
 import Map from "../components/Map.jsx";
 import Contact from "../components/Contact.astro";
-import Video from "../components/Video.astro";
 import Buy from "../components/Buy.astro";
+import Testimonials from "../components/Testimonials.astro";
+import myBackground from "../assets/background.png";
+import { getImage } from "astro:assets";
+
+const optimizedBackground = await getImage({
+  src: myBackground,
+  format: "webp",
+});
 
 const points = [
   { lat: 29.4315, lng: -98.4887 },
@@ -38,16 +45,18 @@ const points = [
 ---
 
 <Layout title="Insurance For Locals Final Expense Leads">
-  <Hero />
-  <Top />
   <div
-    id="locations"
-    class="py-24 min-h-96 max-w-7xl mx-auto relative bg-white"
+    style={`background-image: url(${optimizedBackground.src})`}
+    class="bg-no-repeat bg-cover bg-[10%_100%]"
   >
+    <Hero />
+    <Top />
+  </div>
+  <div id="locations" class="min-h-96 max-w-7xl mx-auto relative bg-white">
     <Map client:only="react" stores={points} />
   </div>
   <Buy />
   <About />
-  <Video />
   <Contact />
+  <Testimonials />
 </Layout>
