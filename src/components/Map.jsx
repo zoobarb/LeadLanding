@@ -76,7 +76,7 @@ const Location = ({ stores }) => {
 
   return (
     <>
-      <h2 class="md:text-5xl text-2xl font-black my-4 text-center">
+      <h2 className="md:text-5xl text-2xl font-black my-4 text-center">
         Lead Locations
       </h2>
       <MapContainer
