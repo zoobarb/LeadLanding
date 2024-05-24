@@ -1,3 +1,7 @@
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -5,4 +9,4 @@ export default {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
-};
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
